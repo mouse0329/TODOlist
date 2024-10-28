@@ -106,4 +106,4 @@ function compression()
     }
     Cookies.set("list",kar);
     console.log("compression:"+kar);
-}
+}//9
