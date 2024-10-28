@@ -1,0 +1,67 @@
+body
+{
+    background-color: rgb(238, 238, 238);
+    font-family: "Noto Sans JP", sans-serif;
+    User-select:none
+}
+
+.btn_back,.box
+{
+    display: flex; justify-content: space-around; align-items: center;
+}
+
+.c_img
+{
+    width: 200px; height: 200px;background: transparent;
+    background-color: rgb(117, 117, 117);
+}
+
+.box
+{
+    width: 500px;height: 500px;
+}
+
+.button
+{
+    width: auto;
+    height: auto;
+    font-size: 40px;
+}
+
+.null
+{
+    height: 50px;
+}
+
+h1
+{
+    background-color: rgb(131, 131, 131);
+}
+
+
+.uenonannka
+{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 5px;
+    background: #4c4c4c;
+}
+
+p
+{
+    font-size: 30px;color: #000000;
+}
+
+.btn_t{
+    background-color: rgb(30, 225, 0);
+    width: auto;
+}
+.content{
+background-color: #afafaf;
+}
+/*.list{                  width: auto;                
+    height: 500px;               
+    border: 1px solid #000;     
+    overflow-y: scroll;         
+    background-color: rgb(255, 255, 255);}*/

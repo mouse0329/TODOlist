@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ネズミTODOlist</title>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="uenonannka">
+        <h1>ネズミTODOlist</h1>
+        <input type="text" id="t" placeholder="ここに内容を入力">
+        <input value="追加" class="btn_t" type="button" onclick="indx();">
+        <input type="button" value="入力をクリア" onclick="document.getElementById('t').value= '';">
+        <input type="button" value="リストリセット" onclick="mo();">
+    </div>
+    <div class="null"></div>
+    <div class="null"></div>
+    <div class="null"></div>
+    <div id="list" class="list">
+    </div>
+</body>
+</html>
