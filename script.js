@@ -43,7 +43,15 @@ function r(){
 function b(){
     bb="";
     for (let i = 0; i < list.length; i++) {
-        bb=bb+`<div class="content" id="${i}">${i+1}<p>${list[i]}<input type="checkbox" id="c${i}" onclick="c(${i});"></p><input type="button" onclick="ss(${i});" value="削除" class="s"><input type="button" value="編集"onclick="h(${i});" ></div><br>`
+        bb=bb+`<div class="content" id="${i}">
+        ${i+1}
+        <p>${list[i]}
+        <input type="checkbox" id="c${i}" onclick="c(${i});">
+        </p>
+        <input type="button" onclick="ss(${i});" value="削除" class="s">
+        <input type="button" value="編集"onclick="h(${i});" >
+        </div>
+        <br>`
     }
     document.getElementById('list').innerHTML= bb;
     for (let i = 0; i < list.length; i++) {
@@ -68,7 +76,9 @@ function mo(){
     if(krasu){r();b();s();}
 }
 function h(ac){
-    document.getElementById(ac).innerHTML=`<input value="${list[ac]}" id="h${ac}" ><br><input type="button" onclick="b();" value="キャンセル" class="s"><input type="button" value="保存"onclick="hs(${ac});" >`;
+    document.getElementById(ac).innerHTML=`<input value="${list[ac]}" id="h${ac}" >
+    <br><input type="button" onclick="b();" value="キャンセル" class="s">
+    <input type="button" value="保存"onclick="hs(${ac});" >`;
 }
 function hs(ok){
     list[ok]=document.getElementById(`h${ok}`).value;
