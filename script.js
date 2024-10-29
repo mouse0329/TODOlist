@@ -48,7 +48,7 @@ function drawing(){
         </div>
         <br>`
     }
-    document.getElementById('list').innerHTML= bb;
+    document.getElementById('list').innerHTML= a;
     for (let i = 0; i < list.length; i++) {
         console.log(listc[i])
         document.getElementById('check'+i).checked=listc[i]
@@ -64,7 +64,6 @@ function indx(){
     list.push(sanitize(a));
     listc.push(false);
     drawing();
-    check();
 }
 function reset_button(){
     var krasu = window.confirm('リセットしますか？');
@@ -76,12 +75,11 @@ function edit(ac){
     <input type="button" value="保存"onclick="Saving_changes(${ac});" >`;
 }
 function Saving_changes(ok){
-    list[ok]=document.getElementById(`h${ok}`).value;
+    list[ok]=sanitize(document.getElementById(`h${ok}`).value);
     seve();drawing();
 }
 function check(c){
-    const a =document.getElementById(`c${c}`);
-    listc[c]=a.checked
+    listc[c]=document.getElementById(`check${c}`).checked;
     seve();
 }
 
