@@ -1,9 +1,6 @@
 var list =[];
 var listc=[];
 var a;
-var bb;
-var ac;
-var am;
 window.onload= () =>{
 load();
 drawing();
@@ -13,20 +10,20 @@ function sanitize(input) {
 }
 function seve(){
     compression();
-    am=""
+    a=""
     for (let i = 0; i < listc.length; i++) {
-        if(listc[i]){am=am+"t"}else{am=am+"f"}
+        if(listc[i]){a=a+"t"}else{a=a+"f"}
     }
-    console.log("seve:"+am);
-    Cookies.set("listc",am);
+    console.log("seve:"+a);
+    Cookies.set("listc",a);
 }
 function load(){
    Thawing();
-    am=Cookies.get("listc");
-    console.log("listc:"+am)
-    for (let i = 0; i < am.length; i++){
-        console.log(am.charAt(i));
-        if(am.charAt(i) === "t"){
+    a=Cookies.get("listc");
+    console.log("listc:"+a)
+    for (let i = 0; i < a.length; i++){
+        console.log(a.charAt(i));
+        if(a.charAt(i) === "t"){
             listc.push(true);
         }else{
             listc.push(false);
@@ -36,14 +33,12 @@ function load(){
 }
 function reset(){
     list=[];
-    a=null;
     listc=[];
-    ac="";
 }
 function drawing(){
-    bb="";
+     a="";
     for (let i = 0; i < list.length; i++) {
-        bb=bb+`<div class="content" id="${i}">
+        a=a+`<div class="content" id="${i}">
         ${i+1}
         <p>${list[i]}
         <input type="checkbox" id="check${i}" onclick="check(${i});">
