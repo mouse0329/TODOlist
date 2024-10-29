@@ -1,5 +1,6 @@
 var list =[];
 var listc=[];
+var listk=[];
 var a;
 window.onload= () =>{
 load();
@@ -34,11 +35,12 @@ function load(){
 function reset(){
     list=[];
     listc=[];
+    listk=[];
 }
 function drawing(){
      a="";
     for (let i = 0; i < list.length; i++) {
-        a=a+`<div class="content" id="${i}">
+        a=a+`<div class="content" id="${i}" style="background-color:${listk[i]};">
         ${i+1}
         <p>${list[i]}
         <input type="checkbox" id="check${i}" onclick="check(${i});">
@@ -63,6 +65,7 @@ function indx(){
     const a =document.getElementById('t').value
     list.push(sanitize(a));
     listc.push(false);
+    listk.push("#afafaf");
     drawing();
 }
 function reset_button(){
@@ -73,11 +76,13 @@ function edit(ac){
     document.getElementById(ac).innerHTML=`
     ${ac+1}
     <input value="${list[ac]}" id="h${ac}" >
+    <input value="${listk[ac]}" id="color${ac}" type="color">
     <br><input type="button" onclick="b();" value="キャンセル" class="s">
     <input type="button" value="保存"onclick="Saving_changes(${ac});" >`;
 }
 function Saving_changes(ok){
     list[ok]=sanitize(document.getElementById(`h${ok}`).value);
+    listk[ok]=document.getElementById(`color${ok}`).value;
     seve();drawing();
 }
 function check(c){
@@ -100,15 +105,36 @@ function Thawing()
             n=n+m.charAt(i)
         }
     }
+     m =Cookies.get("listk");
+     n ="";
+    listk =[];
+    for (let i = 0; i < m.length; i++){
+        if(m.charAt(i)==="/")
+        {
+            listk.push(n);
+            n=""
+        }else
+        {
+            n=n+m.charAt(i)
+        }
+    }
 }
 function compression()
 {
-    Cookies.set("long", list.length);
-    let kar="";
-    for (let i = 0; i < list.length; i++)
-    {
-        kar=kar+list[i]+"/"
-    }
-    Cookies.set("list",kar);
-    console.log("compression:"+kar);
+     //Cookies.set("long", list.length);
+     let kar="";
+     for (let i = 0; i < list.length; i++)
+     {
+         kar=kar+list[i]+"/"
+     }
+     Cookies.set("list",kar);
+     console.log("compression:"+kar);
+
+     kar="";
+     for (let i = 0; i < listk.length; i++)
+     {
+         kar=kar+listk[i]+"/"
+     }
+     Cookies.set("listk",kar);
+     console.log("compression:"+kar);
 }
