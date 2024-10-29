@@ -5,13 +5,13 @@ var bb;
 var ac;
 var am;
 window.onload= () =>{
-l();
-b();
+load();
+drawing();
 }
 function sanitize(input) {
     return input.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\//g, "&#x2F;");
 }
-function s(){
+function seve(){
     compression();
     am=""
     for (let i = 0; i < listc.length; i++) {
@@ -20,7 +20,7 @@ function s(){
     console.log("seve:"+am);
     Cookies.set("listc",am);
 }
-function l(){
+function load(){
    Thawing();
     am=Cookies.get("listc");
     console.log("listc:"+am)
@@ -34,19 +34,19 @@ function l(){
     }
     console.log("l:"+listc);
 }
-function r(){
+function reset(){
     list=[];
     a=null;
     listc=[];
     ac="";
 }
-function b(){
+function drawing(){
     bb="";
     for (let i = 0; i < list.length; i++) {
         bb=bb+`<div class="content" id="${i}">
         ${i+1}
         <p>${list[i]}
-        <input type="checkbox" id="c${i}" onclick="c(${i});">
+        <input type="checkbox" id="check${i}" onclick="check(${i});">
         </p>
         <input type="button" onclick="ss(${i});" value="削除" class="s">
         <input type="button" value="編集"onclick="h(${i});" >
@@ -56,24 +56,24 @@ function b(){
     document.getElementById('list').innerHTML= bb;
     for (let i = 0; i < list.length; i++) {
         console.log(listc[i])
-        document.getElementById('c'+i).checked=listc[i]
+        document.getElementById('check'+i).checked=listc[i]
     }
 }
 function ss(la){
     list.splice(la,1);
-    b();
-    s();
+    drawing();
+    seve();
 }
 function indx(){
     const a =document.getElementById('t').value
     list.push(sanitize(a));
     listc.push(false);
-    b();
-    s();
+    drawing();
+    check();
 }
-function mo(){
+function reset_button(){
     var krasu = window.confirm('リセットしますか？');
-    if(krasu){r();b();s();}
+    if(krasu){reset();drawing();seve();}
 }
 function h(ac){
     document.getElementById(ac).innerHTML=`<input value="${list[ac]}" id="h${ac}" >
@@ -82,12 +82,12 @@ function h(ac){
 }
 function hs(ok){
     list[ok]=document.getElementById(`h${ok}`).value;
-    s();b();
+    seve();drawing();
 }
-function c(c){
+function check(c){
     const a =document.getElementById(`c${c}`);
     listc[c]=a.checked
-    s();
+    seve();
 }
 
 function Thawing()
