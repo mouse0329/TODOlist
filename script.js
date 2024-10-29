@@ -48,8 +48,8 @@ function drawing(){
         <p>${list[i]}
         <input type="checkbox" id="check${i}" onclick="check(${i});">
         </p>
-        <input type="button" onclick="ss(${i});" value="削除" class="s">
-        <input type="button" value="編集"onclick="h(${i});" >
+        <input type="button" onclick="removeItem(${i});" value="削除" class="s">
+        <input type="button" value="編集"onclick="edit(${i});" >
         </div>
         <br>`
     }
@@ -59,7 +59,7 @@ function drawing(){
         document.getElementById('check'+i).checked=listc[i]
     }
 }
-function ss(la){
+function removeItem(la){
     list.splice(la,1);
     drawing();
     seve();
@@ -75,12 +75,12 @@ function reset_button(){
     var krasu = window.confirm('リセットしますか？');
     if(krasu){reset();drawing();seve();}
 }
-function h(ac){
+function edit(ac){
     document.getElementById(ac).innerHTML=`<input value="${list[ac]}" id="h${ac}" >
     <br><input type="button" onclick="b();" value="キャンセル" class="s">
-    <input type="button" value="保存"onclick="hs(${ac});" >`;
+    <input type="button" value="保存"onclick="Saving_changes(${ac});" >`;
 }
-function hs(ok){
+function Saving_changes(ok){
     list[ok]=document.getElementById(`h${ok}`).value;
     seve();drawing();
 }
