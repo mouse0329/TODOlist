@@ -82,7 +82,7 @@ function edit(ac){
     <input value="${listk[ac]}" id="color${ac}" type="color">
     <input value="${listkt[ac]}" id="color_text${ac}" type="color">
     <br><input type="button" onclick="drawing();" value="キャンセル" class="s">
-    <input type="button" value="保存"onclick="Saving_changes(${ac});" >`;
+    <input type="button" value="保存"onclick="Saving_changes(${ac});">`;
 }
 function Saving_changes(ok){
     list[ok]=sanitize(document.getElementById(`h${ok}`).value);
@@ -163,4 +163,9 @@ function compression()
      }
      Cookies.set("listkt",kar);
      console.log("compression:"+kar);
+}
+
+function setting()
+{
+    document.getElementById('list').innerHTML=``;
 }
