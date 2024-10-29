@@ -70,7 +70,9 @@ function reset_button(){
     if(krasu){reset();drawing();seve();}
 }
 function edit(ac){
-    document.getElementById(ac).innerHTML=`<input value="${list[ac]}" id="h${ac}" >
+    document.getElementById(ac).innerHTML=`
+    ${ac+1}
+    <input value="${list[ac]}" id="h${ac}" >
     <br><input type="button" onclick="b();" value="キャンセル" class="s">
     <input type="button" value="保存"onclick="Saving_changes(${ac});" >`;
 }
