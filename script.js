@@ -60,6 +60,9 @@ function drawing(){
 }
 function removeItem(la){//9
     list.splice(la,1);
+    listc.splice(la,1);
+    listk.splice(la,1);
+    listkt.splice(la,1);
     drawing();
     seve();
 }
