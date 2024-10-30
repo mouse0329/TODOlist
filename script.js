@@ -39,23 +39,43 @@ function reset(){
     listk=[];
     listkt=[];
 }
-function drawing(){
-     a="";
-    for (let i = 0; i < list.length; i++) {
-        a=a+`<div class="content" id="${i}" style="background-color:${listk[i]};color:${listkt[i]};">
-        ${i+1}
-        <p style="color:${listkt[i]};">${list[i]}
-        <input type="checkbox" id="check${i}" onclick="check(${i});">
-        </p>
-        <input type="button" onclick="removeItem(${i});" value="削除" class="s">
-        <input type="button" value="編集"onclick="edit(${i});" >
-        </div>
-        <br>`
-    }
-    document.getElementById('list').innerHTML= a;
-    for (let i = 0; i < list.length; i++) {
-        console.log(listc[i])
-        document.getElementById('check'+i).checked=listc[i]
+function drawing(l)
+{
+    if(l=undefined)
+    {
+        a="";
+        for (let i = 0; i < list.length; i++) {
+            a=a+`<div class="content" id="${i}" style="background-color:${listk[i]};color:${listkt[i]};">
+            ${i+1}
+            <p style="color:${listkt[i]};">${list[i]}
+            <input type="checkbox" id="check${i}" onclick="check(${i});">
+            </p>
+            <input type="button" onclick="removeItem(${i});" value="削除" class="s">
+            <input type="button" value="編集"onclick="edit(${i});" >
+            </div>
+            <br>`
+        }
+        document.getElementById('list').innerHTML= a;
+        for (let i = 0; i < list.length; i++) {
+            console.log(listc[i])
+            document.getElementById('check'+i).checked=listc[i]
+        }
+    }else
+    {
+        a=`<div class="content" id="${l}" style="background-color:${listk[l]};color:${listkt[l]};">
+            ${l+1}
+            <p style="color:${listkt[l]};">${list[l]}
+            <input type="checkbox" id="check${i}" onclick="check(${l});">
+            </p>
+            <input type="button" onclick="removeItem(${l});" value="削除" class="s">
+            <input type="button" value="編集"onclick="edit(${l});" >
+            </div>
+            <br>`
+        
+        document.getElementById('list').innerHTML= a;
+            console.log(listc[l])
+            document.getElementById('check'+l).checked=listc[l]
+        
     }
 }
 function removeItem(la){//9
