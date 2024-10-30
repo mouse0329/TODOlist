@@ -2,6 +2,8 @@ var list =[];
 var listc=[];
 var listk=[];
 var listkt=[];
+var kategoris=[];
+var kategori_list=[];
 var a;
 window.onload= () =>{
 load();
@@ -38,6 +40,8 @@ function reset(){
     listc=[];
     listk=[];
     listkt=[];
+    kategoris=[];
+    kategori_list=[];
 }
 function drawing()
 {
@@ -172,5 +176,16 @@ function compression()
 
 function setting()
 {
-    document.getElementById('list').innerHTML=``;
+    document.getElementById('list').innerHTML=`
+    <h1>設定</h1><br>
+    <p>カテゴリ</p>
+    <div class="t" id="kateggori">
+    <input type="button" value="追加 +" onclick="kategori();">
+    </div>
+    <input type="button" value="リセット" onclick="reset_button();">
+    <input type="button" value="設定を閉じる" onclick="drawing();seve();">`
+    ;
+}
+function kategori(){
+    document.getElementById('kategori').innerHTML=""
 }
