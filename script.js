@@ -71,7 +71,8 @@ function indx(){
     list.push(sanitize(a));
     listc.push(false);
     listk.push("#afafaf");
-    listk.push("#000000");
+    listkt.push("#000000");
+    seve();
     drawing();
 }
 function reset_button(){
