@@ -58,7 +58,7 @@ function drawing(){
         document.getElementById('check'+i).checked=listc[i]
     }
 }
-function removeItem(la){
+function removeItem(la){//9
     list.splice(la,1);
     drawing();
     seve();
