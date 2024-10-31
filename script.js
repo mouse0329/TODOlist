@@ -88,8 +88,6 @@ function edit(ac){
     document.getElementById(ac).innerHTML=`
     ${ac+1}
     <input value="${list[ac]}" id="h${ac}" >
-    <input value="${listk[ac]}" id="color${ac}" type="color">
-    <input value="${listkt[ac]}" id="color_text${ac}" type="color">
     <br><input type="button" onclick="drawing();" value="キャンセル" class="s">
     <input type="button" value="保存"onclick="Saving_changes(${ac});">`;
 }
@@ -187,5 +185,21 @@ function setting()
     ;
 }
 function kategori(){
-    document.getElementById('kategori').innerHTML=""
+    listk.push("#afafaf");
+    listkt.push("#000000");
+    kategori_list.push("無名");
+    kategorig();
+}
+function kategorig()
+{
+    a="";
+    for (let i = 0; i < listk.length; i++)
+    {
+        a=+`
+    <input value="${listk[ac]}" id="color${ac}" type="color">背景
+    <input value="${listkt[ac]}" id="color_text${ac}" type="color">文字
+    <input type="button" value="保存"onclick="Saving_changes(${ac});">
+    `
+    }
+    document.getElementById('kategori').innerHTML=a;
 }
