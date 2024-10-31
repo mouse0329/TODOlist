@@ -199,6 +199,7 @@ function compression() {
 }
 
 function setting() {
+    document.getElementById('button').style.display="none";
     document.getElementById('list').innerHTML = `
     <h1>設定</h1><br>
     <p>カテゴリ</p>
@@ -206,7 +207,7 @@ function setting() {
     <input type="button" value="追加 +" onclick="kategori();">
     </div>
     <br>
-    <input type="button" value="設定を閉じる" onclick="drawing();seve();">
+    <input type="button" value="設定を閉じる" onclick="drawing();seve();document.getElementById('button').style.display = 'block';">
     <div class="null"></div>
     <div class="null"></div>
     <div class="null"></div>
