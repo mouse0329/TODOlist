@@ -16,10 +16,13 @@
 <body>
     <div class="uenonannka">
         <h1>ネズミTODOlist</h1>
-        <input type="text" id="t" placeholder="ここに内容を入力">
-        <input value="追加" class="btn_t" type="button" onclick="indx();">
-        <input type="button" value="入力をクリア" onclick="document.getElementById('t').value= '';">
-        <input type="button" value="設定" onclick="setting();">
+        <div id="button">
+            <input type="text" id="t" placeholder="ここに内容を入力">
+            <input value="追加" class="btn_t" type="button" onclick="indx();">
+            <select id="select"></select>
+            <input type="button" value="入力をクリア" onclick="document.getElementById('t').value= '';">
+            <input type="button" value="設定" onclick="setting();">
+        </div>
     </div>
     <div class="null"></div>
     <div class="null"></div>

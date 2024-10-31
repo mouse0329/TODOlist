@@ -46,9 +46,10 @@ function reset() {
 function drawing() {
     a = "";
     for (let i = 0; i < list.length; i++) {
-        a = a + `<div class="content" id="${i}" style="background-color:${listk[i]};color:${listkt[i]};">
+        let x =kategori_list.indexOf(kategoris[i])
+        a = a + `<div class="content" id="${i}" style="background-color:${listk[x]};color:${listkt[x]};">
             ${i + 1}
-            <p style="color:${listkt[i]};">${list[i]}
+            <p style="color:${listkt[x]};">${list[i]}
             <input type="checkbox" id="check${i}" onclick="check(${i});">
             </p>
             <input type="button" onclick="removeItem(${i});" value="削除" class="s">
@@ -61,12 +62,17 @@ function drawing() {
         console.log(listc[i])
         document.getElementById('check' + i).checked = listc[i]
     }
+    a="";
+    for (let i = 0; i < kategori_list.length; i++) 
+    {
+        a=a+`<option value="${kategori_list[i]}">${kategori_list[i]}</option>`
+        document.getElementById('select').innerHTML=a;
+    }
 }
 function removeItem(la) {//9
     list.splice(la, 1);
     listc.splice(la, 1);
-    listk.splice(la, 1);
-    listkt.splice(la, 1);
+    kategoris.splice(la, 1);
     drawing();
     seve();
 }
@@ -74,12 +80,13 @@ function indx() {
     const a = document.getElementById('t').value
     list.push(sanitize(a));
     listc.push(false);
+    kategoris.push(document.getElementById('select').value);
     seve();
     drawing();
 }
 function reset_button() {
     var krasu = window.confirm('リセットしますか？');
-    if (krasu) { reset(); drawing(); seve(); }
+    if (krasu) { reset(); drawing(); seve();setting();}
 }
 function edit(ac) {
     document.getElementById(ac).innerHTML = `
@@ -204,7 +211,7 @@ function setting() {
     <div class="null"></div>
     <div class="null"></div>
     <div class="null"></div>
-    <input type="button" value="リセット" onclick="reset_button();">`;
+    <input type="button" value="リセット" onclick="reset_button();" style="display: flex;">`;
         kategorig();
 }
 function kategori() {
