@@ -131,9 +131,30 @@ function Thawing() {
             n = n + m.charAt(i)
         }
     }
+    m = Cookies.get("kategoris");
+    n = "";
+    kategoris = [];
+    for (let i = 0; i < m.length; i++) {
+        if (m.charAt(i) === "/") {
+            kategoris.push(n);
+            n = ""
+        } else {
+            n = n + m.charAt(i)
+        }
+    }
+    m = Cookies.get("kategori_list");
+    n = "";
+    kategori_list = [];
+    for (let i = 0; i < m.length; i++) {
+        if (m.charAt(i) === "/") {
+            kategori_list.push(n);
+            n = ""
+        } else {
+            n = n + m.charAt(i)
+        }
+    }
 }
 function compression() {
-    //Cookies.set("long", list.length);
     let kar = "";
     for (let i = 0; i < list.length; i++) {
         kar = kar + list[i] + "/"
@@ -159,7 +180,14 @@ function compression() {
     for (let i = 0; i < listkt.length; i++) {
         kar = kar + kategoris[i] + "/"
     }
-    Cookies.set("listkt", kar);
+    Cookies.set("kategoris", kar);
+    console.log("compression:" + kar);
+
+    kar = "";
+    for (let i = 0; i < listkt.length; i++) {
+        kar = kar + kategori_list[i] + "/"
+    }
+    Cookies.set("kategori_list", kar);
     console.log("compression:" + kar);
 }
 
@@ -170,9 +198,14 @@ function setting() {
     <div class="t" id="kateggori">
     <input type="button" value="追加 +" onclick="kategori();">
     </div>
-    <input type="button" value="リセット" onclick="reset_button();">
-    <input type="button" value="設定を閉じる" onclick="drawing();seve();">`
-        ;
+    <br>
+    <input type="button" value="設定を閉じる" onclick="drawing();seve();">
+    <div class="null"></div>
+    <div class="null"></div>
+    <div class="null"></div>
+    <div class="null"></div>
+    <input type="button" value="リセット" onclick="reset_button();">`;
+        kategorig();
 }
 function kategori() {
     listk.push("#afafaf");
@@ -185,13 +218,29 @@ function kategorig() {
     for (let i = 0; i < listk.length; i++) {
         a =a+`
     <div style="background-color: rgb(167, 167, 167);" class="box">
-    <input value="${listk[i]}" type="color">背景
-    <input value="${listkt[i]}" type="color">文字
-    <input type="text" value="${kategori_list[i]}">
+    <input value="${listk[i]}" type="color" id="c${i}"">背景
+    <input value="${listkt[i]}" type="color" id="ck${i}">文字
+    <input type="text" value="${kategori_list[i]}" id="t${i}">
+    <input type="button" value="保存" onclick="kategoriss(${i});">
+    <input type="button" value="削除" onclick="kategorisss(${i});">
 </div>
 <br>
     `
     }
     a=a+'<input type="button" value="追加 +" onclick="kategori();">';
     document.getElementById('kateggori').innerHTML = a;
+}
+function kategoriss(a)
+{
+    listk[a]=document.getElementById('c'+a).value
+    listkt[a]=document.getElementById('ck'+a).value
+    kategori_list[a]=document.getElementById('t'+a).value
+    seve();
+}
+function kategorisss(a)
+{
+    listk.splice(a, 1);
+    listkt.splice(a, 1);
+    kategori_list.splice(a, 1);
+    seve();
 }

@@ -57,7 +57,7 @@ p
 }
 .t{
     background-color: #4c4c4c;
-    height: 200px;
+    height: 500px;
      justify-content: space-around; align-items: center;
     overflow-y: scroll; 
 }
