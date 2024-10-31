@@ -184,7 +184,7 @@ function compression() {
     console.log("compression:" + kar);
 
     kar = "";
-    for (let i = 0; i < listkt.length; i++) {
+    for (let i = 0; i < kategoris.length; i++) {
         kar = kar + kategoris[i] + "/"
     }
     Cookies.set("kategoris", kar);
