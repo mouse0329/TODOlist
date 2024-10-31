@@ -75,8 +75,6 @@ function indx(){
     const a =document.getElementById('t').value
     list.push(sanitize(a));
     listc.push(false);
-    listk.push("#afafaf");
-    listkt.push("#000000");
     seve();
     drawing();
 }
@@ -93,8 +91,6 @@ function edit(ac){
 }
 function Saving_changes(ok){
     list[ok]=sanitize(document.getElementById(`h${ok}`).value);
-    listk[ok]=document.getElementById(`color${ok}`).value;
-    listkt[ok]=document.getElementById(`color_text${ok}`).value;
     seve();drawing();
 }
 function check(c){
@@ -196,9 +192,9 @@ function kategorig()
     for (let i = 0; i < listk.length; i++)
     {
         a=+`
-    <input value="${listk[ac]}" id="color${ac}" type="color">背景
-    <input value="${listkt[ac]}" id="color_text${ac}" type="color">文字
-    <input type="button" value="保存"onclick="Saving_changes(${ac});">
+    <div style="background-color: ${listk[i]}; width: 50px; height: 50px;"></div>背景
+    <div style="background-color: ${listkt[i]}; width: 50px; height: 50px;"></div>文字
+    <p>${kategori_list[i]}</p>
     `
     }
     document.getElementById('kategori').innerHTML=a;
