@@ -185,9 +185,9 @@ function kategorig() {
     for (let i = 0; i < listk.length; i++) {
         a =a+`
     <div style="background-color: rgb(167, 167, 167);" class="box">
-    <div style="background-color: ${listk[i]}; width: 50px; height: 50px;"></div>背景
-    <div style="background-color: ${listkt[i]}; width: 50px; height: 50px;"></div>文字
-    <p>${kategori_list[i]}</p>
+    <input value="${listk[i]}" type="color">背景
+    <input value="${listkt[i]}" type="color">文字
+    <input type="text" value="${kategori_list[i]}">
 </div>
 <br>
     `
