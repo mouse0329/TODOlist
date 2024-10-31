@@ -154,6 +154,13 @@ function compression() {
     }
     Cookies.set("listkt", kar);
     console.log("compression:" + kar);
+
+    kar = "";
+    for (let i = 0; i < listkt.length; i++) {
+        kar = kar + kategoris[i] + "/"
+    }
+    Cookies.set("listkt", kar);
+    console.log("compression:" + kar);
 }
 
 function setting() {
@@ -176,11 +183,15 @@ function kategori() {
 function kategorig() {
     a = "";
     for (let i = 0; i < listk.length; i++) {
-        a = +`
+        a =a+`
+    <div style="background-color: rgb(167, 167, 167);" class="box">
     <div style="background-color: ${listk[i]}; width: 50px; height: 50px;"></div>背景
     <div style="background-color: ${listkt[i]}; width: 50px; height: 50px;"></div>文字
     <p>${kategori_list[i]}</p>
+</div>
+<br>
     `
     }
-    document.getElementById('kategori').innerHTML = a;
+    a=a+'<input type="button" value="追加 +" onclick="kategori();">';
+    document.getElementById('kateggori').innerHTML = a;
 }
