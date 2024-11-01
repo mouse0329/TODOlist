@@ -4,11 +4,15 @@ var listk = [];
 var listkt = [];
 var kategoris = [];
 var kategori_list = [];
+var datetime=[];
 var a;
 var b;
 window.onload = () => {
     load();
     drawing();
+    setInterval(() => {
+        time_drawing();
+    }, 1000);
 }
 function sanitize(input) {
     return input.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\//g, "&#x2F;");
@@ -43,6 +47,9 @@ function reset() {
     listkt = ["#000000"];
     kategoris = [];
     kategori_list = ["通常"];
+    datetime=[];
+    a="";
+    b="";
 }
 function drawing() {
     b=document.getElementById('select').value;
@@ -51,6 +58,7 @@ function drawing() {
         let x =kategori_list.indexOf(kategoris[i])
         a = a + `<div class="content" id="${i}" style="background-color:${listk[x]};color:${listkt[x]};">
             ${i + 1}${"  カテゴリ:"+kategoris[i]}
+            <div id="time${i}"></div>
             <p style="color:${listkt[x]};">${list[i]}
             <input type="checkbox" id="check${i}" onclick="check(${i});">
             </p>
@@ -72,10 +80,40 @@ function drawing() {
     }
     document.getElementById('select').value=b;
 }
+function time_drawing()
+{
+    for(let i=0; i < datetime.length; i++)
+    {
+        let date = new Date();
+        let hour = date.getHours();
+        let min = date.getMinutes();
+        let sec = date.getSeconds();
+        let targetDate = new Date(datetime[i]);
+        let ato = targetDate - date;
+        if (ato>0) {
+            let day = Math.floor(ato / (1000 * 60 * 60 * 24)); 
+        hour = Math.floor((ato % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); 
+        min = Math.floor((ato % (1000 * 60 * 60)) / (1000 * 60)); 
+        sec = Math.floor((ato % (1000 * 60)) / 1000);
+        let element = document.getElementById('time'+i);
+        if (element) {
+         element.innerHTML = `残り${day}日${hour}時間${min}分${sec}秒`;
+         }
+
+        }else
+        {
+            let element = document.getElementById('time'+i);
+            if (element) {
+                element.innerHTML=`この予定の時間が過ぎました。`;
+            }
+        }
+    }
+}
 function removeItem(la) {//9
     list.splice(la, 1);
     listc.splice(la, 1);
     kategoris.splice(la, 1);
+    datetime.splice(la, 1);
     drawing();
     seve();
 }
@@ -84,6 +122,7 @@ function indx() {
     list.push(sanitize(a));
     listc.push(false);
     kategoris.push(document.getElementById('select').value);
+    datetime.push(document.getElementById('datetime').value);
     seve();
     drawing();
 }
@@ -99,7 +138,7 @@ function edit(ac) {
     }
     document.getElementById(ac).innerHTML = `
     ${ac + 1}
-    <input value="${list[ac]}" id="h${ac}" ><select id="se${ac}" class="input">${a}</select>
+    <input value="${list[ac]}" id="h${ac}" ><select id="se${ac}" class="input">${a}</select><input type="datetime-local" id="dd${ac}" value="${datetime[ac]}">
     <br><input type="button" onclick="drawing();" value="キャンセル" class="s">
     <input type="button" value="保存"onclick="Saving_changes(${ac});">`;
     document.getElementById('se'+ac).value=kategoris[ac];
@@ -107,6 +146,7 @@ function edit(ac) {
 function Saving_changes(ok) {
     list[ok] = sanitize(document.getElementById(`h${ok}`).value);
     kategoris[ok] = document.getElementById(`se${ok}`).value;
+    datetime[ok]=document.getElementById(`dd${ok}`).value
     seve(); drawing();
 }
 function check(c) {
@@ -170,6 +210,17 @@ function Thawing() {
             n = n + m.charAt(i)
         }
     }
+    m = Cookies.get("datetime");
+    n = "";
+    datetime = [];
+    for (let i = 0; i < m.length; i++) {
+        if (m.charAt(i) === "/") {
+            datetime.push(n);
+            n = ""
+        } else {
+            n = n + m.charAt(i)
+        }
+    }
 }
 function compression() {
     let kar = "";
@@ -201,10 +252,17 @@ function compression() {
     console.log("compression:" + kar);
 
     kar = "";
-    for (let i = 0; i < listkt.length; i++) {
+    for (let i = 0; i < kategori_list.length; i++) {
         kar = kar + kategori_list[i] + "/"
     }
     Cookies.set("kategori_list", kar);
+    console.log("compression:" + kar);
+
+    kar = "";
+    for (let i = 0; i < datetime.length; i++) {
+        kar = kar + datetime[i] + "/"
+    }
+    Cookies.set("datetime", kar);
     console.log("compression:" + kar);
 }
 
@@ -270,5 +328,5 @@ function kategorisss(a)
     }
 }
 function debug(){
-    document.getElementById('debug').innerHTML=`list:${list}<br>listc:${listc}<br>listk:${listk}<br>listkt${listkt}<br>kategors:${kategoris}<br>kategor_list:${kategori_list}`;
+    document.getElementById('debug').innerHTML=`list:${list}<br>listc:${listc}<br>listk:${listk}<br>listkt${listkt}<br>kategors:${kategoris}<br>kategor_list:${kategori_list}<br>datetime:${datetime}`;
 }
