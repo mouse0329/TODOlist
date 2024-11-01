@@ -66,7 +66,7 @@ p
     border: 1px solid #000;     
     overflow-y: scroll;         
     background-color: rgb(255, 255, 255);}*/
-button{
+.button{
   display       : inline-block;
   border-radius : 5%;  
 }
