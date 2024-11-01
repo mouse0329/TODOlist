@@ -243,20 +243,20 @@ function kategorig() {
 }
 function kategoriss(a)
 {
-    if(kategori_list.length!=1){
     listk[a]=document.getElementById('c'+a).value
     listkt[a]=document.getElementById('ck'+a).value
     kategori_list[a]=document.getElementById('t'+a).value
     seve();
-    }
 }
 function kategorisss(a)
 {
+    if(kategori_list.length!=1){
     listk.splice(a, 1);
     listkt.splice(a, 1);
     kategori_list.splice(a, 1);
     kategorig();
     seve();
+    }
 }
 function debug(){
     document.getElementById('debug').innerHTML=`list:${list}<br>listc:${listc}<br>listk:${listk}<br>listkt${listkt}<br>kategors:${kategoris}<br>kategor_list:${kategori_list}`;
