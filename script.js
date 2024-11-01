@@ -253,7 +253,7 @@ function kategorisss(a)
     listk.splice(a, 1);
     listkt.splice(a, 1);
     kategori_list.splice(a, 1);
-    kategori();
+    kategorig();
     seve();
 }
 function debug(){
