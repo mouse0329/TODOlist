@@ -226,7 +226,7 @@ function kategori() {
 }
 function kategorig() {
     a = "";
-    for (let i = 0; i < listk.length; i++) {
+    for (let i = 0; i < kategori_list.length; i++) {
         a =a+`
     <div style="background-color: rgb(167, 167, 167);" class="box">
     <input value="${listk[i]}" type="color" id="c${i}"">背景
