@@ -90,19 +90,17 @@ function time_drawing()
         let sec = date.getSeconds();
         let targetDate = new Date(datetime[i]);
         let ato = targetDate - date;
+        let element = document.getElementById('time'+i);
         if (ato>0) {
             let day = Math.floor(ato / (1000 * 60 * 60 * 24)); 
         hour = Math.floor((ato % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); 
         min = Math.floor((ato % (1000 * 60 * 60)) / (1000 * 60)); 
         sec = Math.floor((ato % (1000 * 60)) / 1000);
-        let element = document.getElementById('time'+i);
         if (element) {
          element.innerHTML = `残り${day}日${hour}時間${min}分${sec}秒`;
          }
-
         }else
         {
-            let element = document.getElementById('time'+i);
             if (element) {
                 element.innerHTML=`この予定の時間が過ぎました。`;
             }
