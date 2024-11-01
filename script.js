@@ -40,8 +40,8 @@ function reset() {
     listc = [];
     listk = ["#afafaf"];
     listkt = ["#000000"];
-    kategoris = ["通常"];
-    kategori_list = [];
+    kategoris = [];
+    kategori_list = ["通常"];
 }
 function drawing() {
     a = "";
