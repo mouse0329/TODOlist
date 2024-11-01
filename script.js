@@ -214,7 +214,7 @@ function setting() {
     <div class="null"></div>
     <input type="button" value="リセット" onclick="reset_button();" style="display: flex;">
     <input type="button" value="更新" onclick="debug();">
-    <div id="debug"></div>;`;
+    <div id="debug"></div>`;
         kategorig();
         
 }
