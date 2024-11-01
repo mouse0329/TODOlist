@@ -212,8 +212,11 @@ function setting() {
     <div class="null"></div>
     <div class="null"></div>
     <div class="null"></div>
-    <input type="button" value="リセット" onclick="reset_button();" style="display: flex;">`;
+    <input type="button" value="リセット" onclick="reset_button();" style="display: flex;">
+    <input type="button" value="更新" onclick="debug();">
+    <div id="debug"></div>;`;
         kategorig();
+        
 }
 function kategori() {
     listk.push("#afafaf");
@@ -252,4 +255,7 @@ function kategorisss(a)
     kategori_list.splice(a, 1);
     kategori();
     seve();
+}
+function debug(){
+    document.getElementById('debug').innerHTML=`list:${list}<br>listc:${listc}<br>listk:${listk}<br>listkt${listkt}<br>kategors:${kategoris}<br>kategor_list:${kategori_list}`;
 }
