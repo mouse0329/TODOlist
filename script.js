@@ -45,6 +45,7 @@ function reset() {
     kategori_list = ["通常"];
 }
 function drawing() {
+    b=document.getElementById('select').value;
     a = "";
     for (let i = 0; i < list.length; i++) {
         let x =kategori_list.indexOf(kategoris[i])
@@ -79,15 +80,12 @@ function removeItem(la) {//9
     seve();
 }
 function indx() {
-    if(document.getElementById('select').value=!''){
     const a = document.getElementById('t').value
     list.push(sanitize(a));
     listc.push(false);
     kategoris.push(document.getElementById('select').value);
-    b=document.getElementById('select').value;
     seve();
     drawing();
-    }
 }
 function reset_button() {
     var krasu = window.confirm('リセットしますか？');
