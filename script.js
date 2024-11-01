@@ -38,9 +38,9 @@ function load() {
 function reset() {
     list = [];
     listc = [];
-    listk = [];
-    listkt = [];
-    kategoris = [];
+    listk = ["#afafaf"];
+    listkt = ["#000000"];
+    kategoris = ["通常"];
     kategori_list = [];
 }
 function drawing() {
