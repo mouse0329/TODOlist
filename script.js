@@ -243,10 +243,12 @@ function kategorig() {
 }
 function kategoriss(a)
 {
+    if(kategori_list.length!=1){
     listk[a]=document.getElementById('c'+a).value
     listkt[a]=document.getElementById('ck'+a).value
     kategori_list[a]=document.getElementById('t'+a).value
     seve();
+    }
 }
 function kategorisss(a)
 {
