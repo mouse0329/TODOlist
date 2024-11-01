@@ -5,6 +5,7 @@ var listkt = [];
 var kategoris = [];
 var kategori_list = [];
 var a;
+var b;
 window.onload = () => {
     load();
     drawing();
@@ -48,7 +49,7 @@ function drawing() {
     for (let i = 0; i < list.length; i++) {
         let x =kategori_list.indexOf(kategoris[i])
         a = a + `<div class="content" id="${i}" style="background-color:${listk[x]};color:${listkt[x]};">
-            ${i + 1}${"カテゴリ:"+kategoris[i]}
+            ${i + 1}${"  カテゴリ:"+kategoris[i]}
             <p style="color:${listkt[x]};">${list[i]}
             <input type="checkbox" id="check${i}" onclick="check(${i});">
             </p>
@@ -68,6 +69,7 @@ function drawing() {
         a=a+`<option value="${kategori_list[i]}">${kategori_list[i]}</option>`
         document.getElementById('select').innerHTML=a;
     }
+    document.getElementById('select').value=b;
 }
 function removeItem(la) {//9
     list.splice(la, 1);
@@ -77,26 +79,36 @@ function removeItem(la) {//9
     seve();
 }
 function indx() {
+    if(document.getElementById('select').value=!''){
     const a = document.getElementById('t').value
     list.push(sanitize(a));
     listc.push(false);
     kategoris.push(document.getElementById('select').value);
+    b=document.getElementById('select').value;
     seve();
     drawing();
+    }
 }
 function reset_button() {
     var krasu = window.confirm('リセットしますか？');
     if (krasu) { reset(); drawing(); seve();setting();}
 }
 function edit(ac) {
+    a="";
+    for (let i = 0; i < kategori_list.length; i++) 
+    {
+        a=a+`<option value="${kategori_list[i]}">${kategori_list[i]}</option>`
+    }
     document.getElementById(ac).innerHTML = `
     ${ac + 1}
-    <input value="${list[ac]}" id="h${ac}" >
+    <input value="${list[ac]}" id="h${ac}" ><select id="se${ac}" class="input">${a}</select>
     <br><input type="button" onclick="drawing();" value="キャンセル" class="s">
     <input type="button" value="保存"onclick="Saving_changes(${ac});">`;
+    document.getElementById('se'+ac).value=kategoris[ac];
 }
 function Saving_changes(ok) {
     list[ok] = sanitize(document.getElementById(`h${ok}`).value);
+    kategoris[ok] = document.getElementById(`se${ok}`).value;
     seve(); drawing();
 }
 function check(c) {
@@ -207,13 +219,13 @@ function setting() {
     <input type="button" value="追加 +" onclick="kategori();">
     </div>
     <br>
-    <input type="button" value="設定を閉じる" onclick="drawing();seve();document.getElementById('button').style.display = 'block';">
+    <input type="button" value="設定を閉じる" onclick="kategoriss();drawing();seve();document.getElementById('button').style.display = 'block';">
     <div class="null"></div>
     <div class="null"></div>
     <div class="null"></div>
     <div class="null"></div>
     <input type="button" value="リセット" onclick="reset_button();" style="display: flex;">
-    <input type="button" value="更新" onclick="debug();">
+    <input type="button" value="変数一覧" onclick="debug();">
     <div id="debug"></div>`;
         kategorig();
         
@@ -232,7 +244,6 @@ function kategorig() {
     <input value="${listk[i]}" type="color" id="c${i}"">背景
     <input value="${listkt[i]}" type="color" id="ck${i}">文字
     <input type="text" value="${kategori_list[i]}" id="t${i}">
-    <input type="button" value="保存" onclick="kategoriss(${i});">
     <input type="button" value="削除" onclick="kategorisss(${i});">
 </div>
 <br>
@@ -241,12 +252,14 @@ function kategorig() {
     a=a+'<input type="button" value="追加 +" onclick="kategori();">';
     document.getElementById('kateggori').innerHTML = a;
 }
-function kategoriss(a)
+function kategoriss()
 {
-    listk[a]=document.getElementById('c'+a).value
-    listkt[a]=document.getElementById('ck'+a).value
-    kategori_list[a]=document.getElementById('t'+a).value
-    seve();
+    let mo =kategori_list
+    for (let i = 0; i < kategori_list.length; i++){
+    listk[i]=document.getElementById('c'+i).value
+    listkt[i]=document.getElementById('ck'+i).value
+    kategori_list[i]=document.getElementById('t'+i).value
+    seve();}
 }
 function kategorisss(a)
 {

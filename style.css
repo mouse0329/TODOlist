@@ -54,17 +54,6 @@ p
 .btn_t{
     background-color: rgb(30, 225, 0);
     width: auto;
-    display       : inline-block;
-  border-radius : 5%;          /* 角丸       */
-  font-size     : 18pt;        /* 文字サイズ */
-  text-align    : center;      /* 文字位置   */
-  cursor        : pointer;     /* カーソル   */
-  padding       : 2px 2px;   /* 余白       */
-  color         : #ffffff;     /* 文字色     */
-  line-height   : 1em;         /* 1行の高さ  */
-  transition    : .3s;         /* なめらか変化 */
-  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
-  border        : 2px solid rgb(30, 225, 0);    /* 枠の指定 */
 }
 .t{
     background-color: #4c4c4c;
@@ -77,7 +66,16 @@ p
     border: 1px solid #000;     
     overflow-y: scroll;         
     background-color: rgb(255, 255, 255);}*/
-.button{
-  display       : inline-block;
-  border-radius : 5%;  
+input,.input{
+    display       : inline-block;
+    border-radius : 6%;          
+    font-size     : 13pt;      
+    text-align    : center;    
+    cursor        : pointer;   
+    color         : #000000;     
+    line-height   : 1em;        
+    transition    : .3s;          
 }
+.btn_t:hover {
+    background-color: rgb(34, 255, 0);
+  }
