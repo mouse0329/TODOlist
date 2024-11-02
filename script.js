@@ -97,12 +97,12 @@ function time_drawing()
         min = Math.floor((ato % (1000 * 60 * 60)) / (1000 * 60)); 
         sec = Math.floor((ato % (1000 * 60)) / 1000);
         if (element) {
-         element.innerHTML = `残り${day}日${hour}時間${min}分${sec}秒`;
+            document.getElementById('time'+i).innerHTML = `残り${day}日${hour}時間${min}分${sec}秒`;
          }
         }else
         {
             if (element) {
-                element.innerHTML=`この予定の時間が過ぎました。`;
+                document.getElementById('time'+i).innerHTML=`この予定の時間が過ぎました。`;
             }
         }
     }
