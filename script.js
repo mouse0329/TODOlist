@@ -83,6 +83,13 @@ function drawing() {
         document.getElementById('select').innerHTML=a;
     }
     document.getElementById('select').value=b;
+    for (let i = 0; i < list.length; i++) 
+    {
+        if(list[i]="")
+        {
+            list[i]=kategori_list[0]
+        }
+    }
 }
 function time_drawing()
 {
