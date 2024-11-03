@@ -10,6 +10,7 @@ var b;
 var log=[];
 let frag=true;
 window.onload = () => {
+
     if (localStorage.getItem('seve') == null) {
         reset();
         seve();
@@ -65,8 +66,10 @@ function reset() {
     b="";
 }
 function drawing() {
+    const divElement = document.getElementById('uenonannka');
+    console.error(divElement.offsetHeight);
     b=document.getElementById('select').value;
-    a = "";
+    a =`<div style="height: ${divElement.offsetHeight}px;"></diV>`;
     for (let i = 0; i < list.length; i++) {
         let x =kategori_list.indexOf(kategoris[i])
         a = a + `<div class="content" id="${i}" style="background-color:${listk[x]};color:${listkt[x]};">
