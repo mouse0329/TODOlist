@@ -23,17 +23,145 @@ window.onload = () => {
 function sanitize(input) {
     return input.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\//g, "&#x2F;");
 }
+
 function seve() {
-    compression();
+    const seve=JSON.stringify
+    ({
+        list:list,
+        listk:listk,
+        listkt:listkt,
+        listc:listc,
+        kategoris:kategoris,
+        kategori_list:kategori_list,
+        datetime:datetime,
+
+    })
+    localStorage.setItem('seve', seve);
+    /*let kar = "";
+    for (let i = 0; i < list.length; i++) {
+        kar = kar + list[i] + "/"
+    }
+    Cookies.set("list", kar);
+    console.log("compression:" + kar);
+
+    kar = "";
+    for (let i = 0; i < listk.length; i++) {
+        kar = kar + listk[i] + "/"
+    }
+    Cookies.set("listk", kar);
+    console.log("compression:" + kar);
+
+    kar = "";
+    for (let i = 0; i < listkt.length; i++) {
+        kar = kar + listkt[i] + "/"
+    }
+    Cookies.set("listkt", kar);
+    console.log("compression:" + kar);
+
+    kar = "";
+    for (let i = 0; i < kategoris.length; i++) {
+        kar = kar + kategoris[i] + "/"
+    }
+    Cookies.set("kategoris", kar);
+    console.log("compression:" + kar);
+
+    kar = "";
+    for (let i = 0; i < kategori_list.length; i++) {
+        kar = kar + kategori_list[i] + "/"
+    }
+    Cookies.set("kategori_list", kar);
+    console.log("compression:" + kar);
+
+    kar = "";
+    for (let i = 0; i < datetime.length; i++) {
+        kar = kar + datetime[i] + "/"
+    }
+    Cookies.set("datetime", kar);
+    console.log("compression:" + kar);
     a = ""
     for (let i = 0; i < listc.length; i++) {
         if (listc[i]) { a = a + "t" } else { a = a + "f" }
     }
     console.log("seve:" + a);
-    Cookies.set("listc", a);
+    Cookies.set("listc", a);*/
 }
+
 function load() {
-    Thawing();
+    const seve = JSON.parse(localStorage.getItem('seve'));
+        list=seve.list;
+        listk=seve.listk;
+        listkt=seve.listkt;
+        listc=seve.listc;
+        kategoris=seve.kategoris;
+        kategori_list=seve.kategori_list;
+        datetime=seve.datetime;
+        /*
+    let m = Cookies.get("list");
+    let n = "";
+    list = [];
+    for (let i = 0; i < m.length; i++) {
+        if (m.charAt(i) === "/") {
+            list.push(n);
+            n = ""
+        } else {
+            n = n + m.charAt(i)
+        }
+    }
+    m = Cookies.get("listk");
+    n = "";
+    listk = [];
+    for (let i = 0; i < m.length; i++) {
+        if (m.charAt(i) === "/") {
+            listk.push(n);
+            n = ""
+        } else {
+            n = n + m.charAt(i)
+        }
+    }
+    m = Cookies.get("listkt");
+    n = "";
+    listkt = [];
+    for (let i = 0; i < m.length; i++) {
+        if (m.charAt(i) === "/") {
+            listkt.push(n);
+            n = ""
+        } else {
+            n = n + m.charAt(i)
+        }
+    }
+    m = Cookies.get("kategoris");
+    n = "";
+    kategoris = [];
+    for (let i = 0; i < m.length; i++) {
+        if (m.charAt(i) === "/") {
+            kategoris.push(n);
+            n = ""
+        } else {
+            n = n + m.charAt(i)
+        }
+    }
+    m = Cookies.get("kategori_list");
+    n = "";
+    kategori_list = [];
+    for (let i = 0; i < m.length; i++) {
+        if (m.charAt(i) === "/") {
+            kategori_list.push(n);
+            n = ""
+        } else {
+            n = n + m.charAt(i)
+        }
+    }
+    m = Cookies.get("datetime");
+    n = "";
+    datetime = [];
+    for (let i = 0; i < m.length; i++) {
+        if (m.charAt(i) === "/") {
+            datetime.push(n);
+            n = ""
+        } else {
+            n = n + m.charAt(i)
+        }
+    }
     a = Cookies.get("listc");
     console.log("listc:" + a)
     for (let i = 0; i < a.length; i++) {
@@ -44,7 +172,7 @@ function load() {
             listc.push(false);
         }
     }
-    console.log("l:" + listc);
+    console.log("l:" + listc);*/
 }
 function reset() {
     list = [];
@@ -158,117 +286,6 @@ function check(c) {
     seve();
 }
 
-function Thawing() {
-    let m = Cookies.get("list");
-    let n = "";
-    list = [];
-    for (let i = 0; i < m.length; i++) {
-        if (m.charAt(i) === "/") {
-            list.push(n);
-            n = ""
-        } else {
-            n = n + m.charAt(i)
-        }
-    }
-    m = Cookies.get("listk");
-    n = "";
-    listk = [];
-    for (let i = 0; i < m.length; i++) {
-        if (m.charAt(i) === "/") {
-            listk.push(n);
-            n = ""
-        } else {
-            n = n + m.charAt(i)
-        }
-    }
-    m = Cookies.get("listkt");
-    n = "";
-    listkt = [];
-    for (let i = 0; i < m.length; i++) {
-        if (m.charAt(i) === "/") {
-            listkt.push(n);
-            n = ""
-        } else {
-            n = n + m.charAt(i)
-        }
-    }
-    m = Cookies.get("kategoris");
-    n = "";
-    kategoris = [];
-    for (let i = 0; i < m.length; i++) {
-        if (m.charAt(i) === "/") {
-            kategoris.push(n);
-            n = ""
-        } else {
-            n = n + m.charAt(i)
-        }
-    }
-    m = Cookies.get("kategori_list");
-    n = "";
-    kategori_list = [];
-    for (let i = 0; i < m.length; i++) {
-        if (m.charAt(i) === "/") {
-            kategori_list.push(n);
-            n = ""
-        } else {
-            n = n + m.charAt(i)
-        }
-    }
-    m = Cookies.get("datetime");
-    n = "";
-    datetime = [];
-    for (let i = 0; i < m.length; i++) {
-        if (m.charAt(i) === "/") {
-            datetime.push(n);
-            n = ""
-        } else {
-            n = n + m.charAt(i)
-        }
-    }
-}
-function compression() {
-    let kar = "";
-    for (let i = 0; i < list.length; i++) {
-        kar = kar + list[i] + "/"
-    }
-    Cookies.set("list", kar);
-    console.log("compression:" + kar);
-
-    kar = "";
-    for (let i = 0; i < listk.length; i++) {
-        kar = kar + listk[i] + "/"
-    }
-    Cookies.set("listk", kar);
-    console.log("compression:" + kar);
-
-    kar = "";
-    for (let i = 0; i < listkt.length; i++) {
-        kar = kar + listkt[i] + "/"
-    }
-    Cookies.set("listkt", kar);
-    console.log("compression:" + kar);
-
-    kar = "";
-    for (let i = 0; i < kategoris.length; i++) {
-        kar = kar + kategoris[i] + "/"
-    }
-    Cookies.set("kategoris", kar);
-    console.log("compression:" + kar);
-
-    kar = "";
-    for (let i = 0; i < kategori_list.length; i++) {
-        kar = kar + kategori_list[i] + "/"
-    }
-    Cookies.set("kategori_list", kar);
-    console.log("compression:" + kar);
-
-    kar = "";
-    for (let i = 0; i < datetime.length; i++) {
-        kar = kar + datetime[i] + "/"
-    }
-    Cookies.set("datetime", kar);
-    console.log("compression:" + kar);
-}
 
 function setting() {
     document.getElementById('button').style.display="none";
