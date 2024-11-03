@@ -9,11 +9,6 @@ var a;
 var b;
 var log=[];
 window.onload = () => {
-    if(Cookies.get("list") === "undefined")
-    {
-        reset();
-        seve();
-    }
     load();
     drawing();
     setInterval(() => {
@@ -177,11 +172,39 @@ function setting() {
     <div class="null"></div>
     <div class="null"></div>
     <input type="button" value="リセット" onclick="reset_button();" style="display: flex;">
+    <h1>デバック</h1>
+    <input type="button" value="通知テスト" onclick="tuti();">
     <input type="button" value="変数一覧" onclick="debug();">
     <div id="debug"></div>`;
         kategorig();
         
 }
+document.addEventListener("DOMContentLoaded", requestNotificationPermission);
+function tuti()
+{
+    sendNotification("ねずみTODOlist", {
+        body: "チューチューチューチュー？チューチューチュン",
+        icon: "img/TODOlist_ico.jpg"
+      });
+}
+function sendNotification(title, options) {
+    if (Notification.permission === "granted") {
+      new Notification(title, options);
+    } else {
+      console.log("通知権限がないチュー");
+    }
+  }
+  function requestNotificationPermission() {
+    if (Notification.permission === "default") {
+      Notification.requestPermission().then(permission => {
+        if (permission === "granted") {
+          console.log("通知の権限が許可されました");
+        } else {
+          console.log("通知の権限が拒否されました");
+        }
+      });
+    }
+  }
 function kategori() {
     listk.push("#afafaf");
     listkt.push("#000000");
