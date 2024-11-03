@@ -1,6 +1,7 @@
 body
 {
     background-color: rgb(238, 238, 238);
+    /*background-image: url(img/Back_Image.jpg);*/
     font-family: "Noto Sans JP", sans-serif;
     User-select:none
 }

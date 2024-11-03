@@ -9,6 +9,10 @@ var a;
 var b;
 var log=[];
 window.onload = () => {
+    if (localStorage.getItem('seve') == null) {
+        reset();
+        seve();
+    }
     load();
     drawing();
     setInterval(() => {
@@ -85,7 +89,7 @@ function drawing() {
     document.getElementById('select').value=b;
     for (let i = 0; i < list.length; i++) 
     {
-        if(list[i]="")
+        if(list[i]='')
         {
             list[i]=kategori_list[0]
         }
