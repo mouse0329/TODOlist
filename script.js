@@ -8,12 +8,17 @@ var datetime=[];
 var a;
 var b;
 var log=[];
+let frag=true;
 window.onload = () => {
     if (localStorage.getItem('seve') == null) {
         reset();
         seve();
     }
     load();
+    frag=true;
+    drawing();
+    const selectElement = document.querySelector('select');
+    selectElement.selectedIndex = 0;
     drawing();
     setInterval(() => {
         time_drawing();
@@ -80,20 +85,13 @@ function drawing() {
         console.log(listc[i])
         document.getElementById('check' + i).checked = listc[i]
     }
-    a="";
+    a='<option value="assaddddadadd">選択してください</option>';
     for (let i = 0; i < kategori_list.length; i++) 
     {
         a=a+`<option value="${kategori_list[i]}">${kategori_list[i]}</option>`
         document.getElementById('select').innerHTML=a;
     }
     document.getElementById('select').value=b;
-    for (let i = 0; i < list.length; i++) 
-    {
-        if(list[i]='')
-        {
-            list[i]=kategori_list[0]
-        }
-    }
 }
 function time_drawing()
 {
