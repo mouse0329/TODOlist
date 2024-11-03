@@ -7,7 +7,13 @@ var kategori_list = [];
 var datetime=[];
 var a;
 var b;
+var log=[];
 window.onload = () => {
+    if(Cookies.get("list") === "undefined")
+    {
+        reset();
+        seve();
+    }
     load();
     drawing();
     setInterval(() => {
