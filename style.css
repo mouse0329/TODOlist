@@ -87,3 +87,10 @@ input,.input{
     clip-path: circle(30px at center);
 }
 .f{font-family: "Zen Kurenaido", sans-serif;}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
