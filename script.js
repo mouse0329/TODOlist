@@ -5,6 +5,7 @@ var listkt = [];
 var kategoris = [];
 var kategori_list = [];
 var datetime=[];
+var kateggori_number=[];
 var a;
 var b;
 var log=[];
@@ -203,7 +204,7 @@ function sendNotification(title, options) {
     if (Notification.permission === "granted") {
       new Notification(title, options);
     } else {
-      console.log("通知権限がないチュー");
+      console.log("通知権限がない");
     }
   }
   function requestNotificationPermission() {
@@ -221,6 +222,7 @@ function kategori() {
     listk.push("#afafaf");
     listkt.push("#000000");
     kategori_list.push("無名");
+    //kateggori_number.push()
     kategorig();
 }
 function kategorig() {
