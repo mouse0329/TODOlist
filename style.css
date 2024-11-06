@@ -130,4 +130,19 @@ select:focus {
     background-color: #fff;
 }
 
+input[type="datetime-local"] {
+    width: 100px;
+    padding: 12px;
+    font-size: 16px;
+    color: #333;
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    background-color: #f3f3f3;
+    transition: all 0.3s ease;
+}
+
+input[type="datetime-local"]:focus {
+    border-color: #4a90e2;
+    background-color: #fff;
+}
 
