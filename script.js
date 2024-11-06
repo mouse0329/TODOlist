@@ -152,7 +152,7 @@ function edit(ac) {
     }
     document.getElementById(ac).innerHTML = `
     ${ac + 1}
-    <input value="${list[ac]}" id="h${ac}" ><select id="se${ac}" class="input">${a}</select><input type="datetime-local" id="dd${ac}" value="${datetime[ac]}">
+    <input type="text" value="${list[ac]}" id="h${ac}" ><select id="se${ac}" class="input">${a}</select><input type="datetime-local" id="dd${ac}" value="${datetime[ac]}">
     <br><input type="button" onclick="drawing();" value="キャンセル" class="s">
     <input type="button" value="保存"onclick="Saving_changes(${ac});">`;
     document.getElementById('se'+ac).value=kategoris[ac];
