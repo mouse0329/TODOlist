@@ -5,7 +5,9 @@ var listkt = [];
 var kategoris = [];
 var kategori_list = [];
 var datetime=[];
-var kateggori_number=[];
+var kateggori_id=[]
+var kateggori_ID_trash=[]
+var new_kateggori_id=[]
 var a;
 var b;
 var log=[];
@@ -40,7 +42,9 @@ function seve() {
         kategoris:kategoris,
         kategori_list:kategori_list,
         datetime:datetime,
-
+        kateggori_id:kateggori_id,
+        kateggori_ID_trash:kateggori_ID_trash,
+        new_kateggori_id:new_kateggori_id,
     })
     localStorage.setItem('seve', seve);
 }
@@ -54,6 +58,9 @@ function load() {
         kategoris=seve.kategoris;
         kategori_list=seve.kategori_list;
         datetime=seve.datetime;
+        kateggori_id=seve.kateggori_id
+        kateggori_ID_trash=seve.kateggori_ID_trash
+        new_kateggori_id=seve.new_kateggori_id
 }
 function reset() {
     list = [];
@@ -63,6 +70,9 @@ function reset() {
     kategoris = [];
     kategori_list = ["通常"];
     datetime=[];
+    kateggori_id=[];
+    kateggori_ID_trash=[];
+    new_kateggori_id=[];
     a="";
     b="";
 }
@@ -222,7 +232,7 @@ function kategori() {
     listk.push("#afafaf");
     listkt.push("#000000");
     kategori_list.push("無名");
-    //kateggori_number.push()
+    //kateggori_id.push()
     kategorig();
 }
 function kategorig() {
