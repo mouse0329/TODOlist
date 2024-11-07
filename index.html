@@ -21,15 +21,27 @@
     <div class="uenonannka" id="uenonannka">
         <h1 class="f"><img src="img/TODOlist_ico.jpg" class="img" alt="ねずみTODOlistのアイコン">ネズミTODOlist</h1>
         <div id="button" class="button">
-            <input type="text" id="t" placeholder="ここに内容を入力">
-            <input value="追加" class="btn_t" type="button" onclick="indx();">
-            <select id="select" class="input"></select>
-            </select><input type="datetime-local" id="datetime" value="">
-            <input type="button" value="入力をクリア" onclick="document.getElementById('t').value= '';">
+            <input value="追加" class="btn_t" type="button" onclick="document.getElementById('tuika').style.display = 'block';">
             <input type="button" value="設定" onclick="setting();">
         </div>
     </div>
     <div id="list" class="list">
+    </div>
+    <div class="tuika" id="tuika">
+        <div class="tuika_window">
+            <input type="text" id="t" placeholder="ここに内容を入力" >
+            <input type="button" value="入力をクリア" onclick="document.getElementById('t').value= '';" >
+            <br>カテゴリ
+            <select id="select" class="input" class="item" ></select>
+            <br>時間
+            <input type="datetime-local" id="datetime" value="" id="item">
+            <br>
+            <div>
+            <input value="追加" class="btn_t" type="button" onclick='indx();document.getElementById("tuika").style.display="none";' id="item">
+            <br>
+            <input type="button" value="キャンセル" onclick='document.getElementById("tuika").style.display="none";' id="item">
+            </div>
+        </div>
     </div>
 </body>
 </html>

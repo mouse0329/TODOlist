@@ -147,3 +147,38 @@ input[type="datetime-local"]:focus {
     background-color: #fff;
 }
 
+.tuika
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: var(--gm3-dialog-scrim-color, rgba(0, 0, 0, .32));
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.tuika_window
+{
+    background-color: #ddd;
+    border-radius: 15px;
+    width: 550px;
+    height: 550px;
+    display: table;
+  border-spacing: 20px;
+}
+
+.item,#item{
+    display: table-cell;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+  
+

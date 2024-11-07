@@ -13,7 +13,7 @@ var b;
 var log=[];
 let frag=true;
 window.onload = () => {
-
+    document.getElementById("tuika").style.display="none";
     if (localStorage.getItem('seve') == null) {
         reset();
         seve();
