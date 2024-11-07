@@ -200,6 +200,10 @@ function setting() {
     <input type="button" value="変数一覧" onclick="debug();">
     <div id="debug"></div>`;
         kategorig();
+        window.scroll({
+            top: 0,
+            behavior: "smooth",
+          });
         
 }
 document.addEventListener("DOMContentLoaded", requestNotificationPermission);
