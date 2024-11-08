@@ -78,7 +78,6 @@ function reset() {
 }
 function drawing() {
     const divElement = document.getElementById('uenonannka');
-    console.error(divElement.offsetHeight);
     b=document.getElementById('select').value;
     a =`<div style="height: ${divElement.offsetHeight}px;"></diV>`;
     for (let i = 0; i < list.length; i++) {
@@ -96,10 +95,9 @@ function drawing() {
     }
     document.getElementById('list').innerHTML = a;
     for (let i = 0; i < list.length; i++) {
-        console.log(listc[i])
         document.getElementById('check' + i).checked = listc[i]
     }
-    a='<option value="assaddddadadd">選択してください</option>';
+    a='';
     for (let i = 0; i < kategori_list.length; i++) 
     {
         a=a+`<option value="${kategori_list[i]}">${kategori_list[i]}</option>`
@@ -111,6 +109,7 @@ function time_drawing()
 {
     for(let i=0; i < datetime.length; i++)
     {
+        if(datetime[i]!="n"){
         let date = new Date();
         let hour = date.getHours();
         let min = date.getMinutes();
@@ -132,6 +131,7 @@ function time_drawing()
                 document.getElementById('time'+i).innerHTML=`この予定の時間が過ぎました。`;
             }
         }
+            }
     }
 }
 function removeItem(la) {//9
@@ -186,7 +186,7 @@ function setting() {
     <h1>設定</h1><br>
     <p>カテゴリ</p>
     <div class="t" id="kateggori">
-    <input type="button" value="追加 +" onclick="kategori();">
+    <input type="button" value="追加 +" onclick="kategoriss();kategori();">
     </div>
     <br>
     <input type="button" value="設定を閉じる" onclick="kategoriss();drawing();seve();document.getElementById('button').style.display = 'block';drawing();">
