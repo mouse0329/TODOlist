@@ -16,6 +16,10 @@ h1
 {
     background-color: rgb(131, 131, 131);
 }
+.content
+{
+    border-radius: 15px;
+}
 
 .button {
     display: flex;
@@ -31,6 +35,7 @@ h1
     width: 100%;
     padding: 5px;
     background: #4c4c4c;
+    border-radius: 15px;
 }
 
 p

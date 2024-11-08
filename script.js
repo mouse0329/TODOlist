@@ -82,9 +82,9 @@ function drawing() {
     b=document.getElementById('select').value;
     a =`<div style="height: ${divElement.offsetHeight}px;"></diV>`;
     for (let i = 0; i < list.length; i++) {
-        let x =kategori_list.indexOf(kategoris[i])
+        let x = kateggori_id.indexOf(JSON.parse(kategoris[i]));
         a = a + `<div class="content" id="${i}" style="background-color:${listk[x]};color:${listkt[x]};">
-            ${i + 1}${"  カテゴリ:"+kategoris[i]}
+            ${i + 1}${"  カテゴリ:"+kategori_list[x]}
             <div id="time${i}"></div>
             <p style="color:${listkt[x]};">${list[i]}
             <input type="checkbox" id="check${i}" onclick="check(${i});">
@@ -101,7 +101,7 @@ function drawing() {
     a='';
     for (let i = 0; i < kategori_list.length; i++) 
     {
-        a=a+`<option value="${kategori_list[i]}">${kategori_list[i]}</option>`
+        a=a+`<option value="${kateggori_id[i]}">${kategori_list[i]}</option>`
         document.getElementById('select').innerHTML=a;
     }
     document.getElementById('select').value=b;
@@ -160,7 +160,7 @@ function edit(ac) {
     a="";
     for (let i = 0; i < kategori_list.length; i++) 
     {
-        a=a+`<option value="${kategori_list[i]}">${kategori_list[i]}</option>`
+        a=a+`<option value="${kateggori_id[i]}">${kategori_list[i]}</option>`
     }
     document.getElementById(ac).innerHTML = `
     ${ac + 1}
