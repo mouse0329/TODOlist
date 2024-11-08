@@ -191,10 +191,6 @@ function setting() {
     </div>
     <br>
     <input type="button" value="設定を閉じる" onclick="kategoriss();drawing();seve();document.getElementById('button').style.display = 'block';drawing();">
-    <div class="null"></div>
-    <div class="null"></div>
-    <div class="null"></div>
-    <div class="null"></div>
     <input type="button" value="リセット" onclick="reset_button();" style="display: flex;">
     <h1>デバック</h1>
     <input type="button" value="通知テスト" onclick="tuti();">
