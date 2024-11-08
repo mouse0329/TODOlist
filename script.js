@@ -183,7 +183,9 @@ function check(c) {
 
 function setting() {
     document.getElementById('button').style.display="none";
+    const divElement = document.getElementById('uenonannka');
     document.getElementById('list').innerHTML = `
+    <div style="height: ${divElement.offsetHeight}px;"></diV>
     <h1>設定</h1><br>
     <p>カテゴリ</p>
     <div class="t" id="kateggori">
