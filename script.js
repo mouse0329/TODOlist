@@ -7,7 +7,7 @@ var kategori_list = [];
 var datetime=[];
 var kateggori_id=[]
 var kateggori_ID_trash=[]
-var new_kateggori_id=[]
+var new_kateggori_id;
 var a;
 var b;
 var log=[];
@@ -70,9 +70,10 @@ function reset() {
     kategoris = [];
     kategori_list = ["通常"];
     datetime=[];
-    kateggori_id=[];
+    kateggori_id=[1];
+    console.log(kateggori_id);
     kateggori_ID_trash=[];
-    new_kateggori_id=[];
+    new_kateggori_id=1;
     a="";
     b="";
 }
@@ -153,7 +154,7 @@ function indx() {
 }
 function reset_button() {
     var krasu = window.confirm('リセットしますか？');
-    if (krasu) { reset(); drawing(); seve();setting();}
+    if (krasu) { reset();seve();drawing();setting();}
 }
 function edit(ac) {
     a="";
@@ -236,7 +237,15 @@ function kategori() {
     listk.push("#afafaf");
     listkt.push("#000000");
     kategori_list.push("無名");
-    //kateggori_id.push()
+    if (kateggori_ID_trash.length > 0)
+    {
+        a = kateggori_ID_trash[0];
+        kateggori_ID_trash.splice(0, 1);
+    } else {
+        new_kateggori_id++;
+        a = new_kateggori_id;
+    }
+    kateggori_id.push(a)
     kategorig();
 }
 function kategorig() {
@@ -270,6 +279,8 @@ function kategorisss(a)
     listk.splice(a, 1);
     listkt.splice(a, 1);
     kategori_list.splice(a, 1);
+    kateggori_ID_trash.push(kateggori_id[a]);
+    kateggori_id.splice(a,1);
     kategorig();
     seve();
     }
