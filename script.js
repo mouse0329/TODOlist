@@ -293,10 +293,10 @@ function kategorisss(ll)
     }
 }
 function kategorissss(a){
-    console.log(a)//バグあり
+    console.log(a)
     let n = document.getElementById('mmm').value;
 for (let i = 0; i < kategoris.length; i++) {
-    if (kategoris[i] === kateggori_id[a]) {
+    if (kategoris[i] = kateggori_id[a]) {
         kategoris[i] = n;
     }
 }
