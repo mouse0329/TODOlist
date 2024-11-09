@@ -271,9 +271,37 @@ function kategoriss()
     kategori_list[i]=document.getElementById('t'+i).value
     seve();}
 }
-function kategorisss(a)
-{
-    if(kategori_list.length!=1){
+function kategorisss(ll)
+{   
+    var aa="";
+    for (let i = 0; i < kategori_list.length; i++) 
+    {
+        if(a=!i){
+        aa=aa+`<option value="${kateggori_id[i]}">${kategori_list[i]}</option>`
+        }
+    }
+    if(kategori_list.length!=1)
+    {
+    b=0;
+    kategoriss();
+    const moo=`<p>削除しますか</p>
+    <p>またこのカテゴリを使用したものはどのカテゴリに置き換えますか</p>
+    <select id="mmm">${aa}</select>
+    <input type="button" value="ok" onclick='b=1;kategorissss(${ll});' id="item">
+    <input type="button" value="キャンセル" onclick='windows_close();b=0;' id="item">`
+    windows(moo);
+    }
+}
+function kategorissss(a){
+    console.log(a)//バグあり
+    let n = document.getElementById('mmm').value;
+for (let i = 0; i < kategoris.length; i++) {
+    if (kategoris[i] === kateggori_id[a]) {
+        kategoris[i] = n;
+    }
+}
+
+    kategoriss();
     listk.splice(a, 1);
     listkt.splice(a, 1);
     kategori_list.splice(a, 1);
@@ -281,8 +309,20 @@ function kategorisss(a)
     kateggori_id.splice(a,1);
     kategorig();
     seve();
-    }
+    windows_close();
 }
+
 function debug(){
     document.getElementById('debug').innerHTML=`list:${list}<br>listc:${listc}<br>listk:${listk}<br>listkt${listkt}<br>kategors:${kategoris}<br>kategor_list:${kategori_list}<br>datetime:${datetime}`;
+}
+
+function windows(c)
+{
+    document.getElementById("windows").innerHTML=c;
+    document.getElementById('window').style.display = 'block';document.getElementById('window').style.display = 'flex';
+}
+
+function windows_close()
+{
+    document.getElementById("window").style.display="none";
 }

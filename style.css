@@ -177,6 +177,15 @@ input[type="datetime-local"]:focus {
     display: table;
   border-spacing: 20px;
 }
+.window
+{
+    background-color: #ddd;
+    border-radius: 15px;
+    width: 300px;
+    height: 300px;
+    display: table;
+  border-spacing: 20px;
+}
 
 .item,#item{
     display: table-cell;
