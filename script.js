@@ -276,7 +276,7 @@ function kategorisss(ll)
     var aa="";
     for (let i = 0; i < kategori_list.length; i++) 
     {
-        if(a=!i){
+        if(ll=!i){
         aa=aa+`<option value="${kateggori_id[i]}">${kategori_list[i]}</option>`
         }
     }
